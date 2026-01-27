@@ -8,12 +8,14 @@ class YarnBall {
 
         this.posX = 700
         this.posY = posY
-        this.yarn.style.width = "40px"
-        this.yarn.style.height = "40px"
+        this.width = 40
+        this.height = 40
 
         this.yarn.style.position = "absolute"
         this.yarn.style.top = `${this.posY}px`
         this.yarn.style.left = `${this.posX}px`
+        this.yarn.style.width = `${this.width}px`
+        this.yarn.style.height = `${this.height}px`
     }
     movingYarn(){
         this.posX -= 1

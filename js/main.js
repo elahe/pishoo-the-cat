@@ -11,6 +11,7 @@ let catObj = null
 let cactusObj = null
 let pizzaObj = null
 let yarnObj = null
+let score = 0
 // let randomNum = Math.floor(Math.random() * 480)
 
 
@@ -33,7 +34,6 @@ document.addEventListener("keydown",(event) => {
 })
 
 
-
 document.addEventListener("keyup",(event) => {
     if(event.key === "ArrowUp"){
         catObj.isMovingUp = false
@@ -52,9 +52,58 @@ document.addEventListener("keyup",(event) => {
 
 
 
+////// is colliding 
+
+function theColliding(){
+    cactusArr.forEach((eachCac) => {
+        let isColliding = checkCollisionCatCac(catObj, eachCac)
+        if (isColliding) {
+            // gameOver()
+            console.log("cactus")
+        }
+    })
+    yarnArr.forEach((eachyarn) => {
+        let isColliding = checkCollisionCatCac(catObj, eachyarn)
+        if (isColliding) {
+            // gameOver()
+            console.log("yarn")
+        }
+    })
+    pizzaArr.forEach((eachpizza) => {
+        let isColliding = checkCollisionCatCac(catObj, eachpizza)
+        if (isColliding) {
+            // gameOver()
+            console.log("pizza")
+        }
+    })
+}
+
+function checkCollisionCatCac(obj1, obj2) {
+    return (
+        obj1.x < obj2.posX + obj2.width &&
+        obj1.x + obj1.w > obj2.posX &&
+        obj1.y < obj2.posY + obj2.height &&
+        obj1.y + obj1.h > obj2.posY
+    );
+}
 
 
-///
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 startBtn.addEventListener("click", startGame)
@@ -107,6 +156,10 @@ function startGame(){
     catObj = new Cat()
     // catObj.moving()
     // cactusObj = new Cactus()
+} 
+
+function gameOver(){
+    alert("shit")
 }
 
 
@@ -124,6 +177,8 @@ function gameLoop(){
         yarn.movingYarn()
     })
     deSpawn()
+    theColliding()
+    // gameOver()
 
 }
 

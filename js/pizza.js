@@ -8,12 +8,15 @@ class Pizza {
 
         this.posX = 700
         this.posY = posY
-        this.pizza.style.width = "40px"
-        this.pizza.style.height = "40px"
+        this.width = 40
+        this.height = 40
+
 
         this.pizza.style.position = "absolute"
         this.pizza.style.top = `${this.posY}px`
         this.pizza.style.left = `${this.posX}px`
+        this.pizza.style.width = `${this.width}px`
+        this.pizza.style.height = `${this.height}px`
     }
     movingPizza(){
         this.posX -= 1
