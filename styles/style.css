@@ -1,0 +1,49 @@
+button{
+    display: block;
+    padding: 10px 20px;
+    margin: 100px auto;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(0, 159, 106);
+    border-radius: 10px;
+    border: none;
+    
+}
+button:hover {
+    background-color: rgb(0, 117, 78);
+}
+
+
+#start-page {
+    display: block;
+    background-image: url(../images/Desert.png);
+    background-size: cover;
+    width: 700px;
+    height: 500px;
+    margin: 100px auto;
+    /* filter: blur(7px); */
+    overflow: hidden;
+    position: relative;
+}
+
+#game-page {
+    display: none;
+    background-image: url(../images/Desert.png);
+    background-size: cover;
+    width: 700px;
+    height: 500px;
+    margin: 100px auto;
+    /* filter: blur(7px); */
+    overflow: hidden;
+    position: relative;
+}
+
+
+#gameover-page {
+    display: none;
+    background-color: rgb(207, 69, 0);
+    background-size: cover;
+    width: 700px;
+    height: 500px;
+    margin: 100px auto;
+}
