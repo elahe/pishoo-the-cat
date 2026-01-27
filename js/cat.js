@@ -9,7 +9,6 @@ class Cat{
         this.w = 40
         this.h = 40
 
-        console.log(this.y)
 
         this.cat.style.position = "absolute"
         this.cat.style.top = `${this.y}px`
