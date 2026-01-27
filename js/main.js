@@ -1,6 +1,7 @@
 let startBtn = document.querySelector("#start") 
 let startPage = document.querySelector("#start-page")
 let gamePage = document.querySelector("#game-page")
+let gameOverPage = document.querySelector("#gameover-page")
 
 
 let cactusArr = []
@@ -59,21 +60,24 @@ function theColliding(){
         let isColliding = checkCollisionCatCac(catObj, eachCac)
         if (isColliding) {
             // gameOver()
-            console.log("cactus")
+            // console.log("cactus")
         }
     })
     yarnArr.forEach((eachyarn) => {
         let isColliding = checkCollisionCatCac(catObj, eachyarn)
         if (isColliding) {
-            // gameOver()
-            console.log("yarn")
+            score++
+            // console.log(score)
         }
     })
     pizzaArr.forEach((eachpizza) => {
         let isColliding = checkCollisionCatCac(catObj, eachpizza)
         if (isColliding) {
-            // gameOver()
-            console.log("pizza")
+            catObj.w += 3
+            catObj.h += 3
+            catObj.cat.style.width = `${catObj.w}px`
+            catObj.cat.style.height = `${catObj.h}px`
+            console.log(catObj.w)
         }
     })
 }
@@ -159,7 +163,9 @@ function startGame(){
 } 
 
 function gameOver(){
-    alert("shit")
+    startPage.style.display = "none"
+    gamePage.style.display = "none"
+    gameOverPage.style.display = "block"
 }
 
 
