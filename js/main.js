@@ -4,8 +4,14 @@ let gamePage = document.querySelector("#game-page")
 
 
 let cactusArr = []
+let pizzaArr = []
+let yarnArr = []
+
 let catObj = null
 let cactusObj = null
+let pizzaObj = null
+let yarnObj = null
+// let randomNum = Math.floor(Math.random() * 480)
 
 
 startBtn.addEventListener("click", startGame)
@@ -14,10 +20,19 @@ function cactusSpawn(){
     let randomNum = Math.floor(Math.random() * 480)
     let spawnedCactus = new Cactus(randomNum)
     cactusArr.push(spawnedCactus)
-
-    // console.log(randomNum)
-
 }
+function pizzaSpawn(){
+    let randomNum = Math.floor(Math.random() * 480)
+    let spawnedPizza = new Pizza(randomNum)
+    pizzaArr.push(spawnedPizza)
+}
+function yarnSpawn(){
+    let randomNum = Math.floor(Math.random() * 480)
+    let spawnedYarn = new YarnBall(randomNum)
+    yarnArr.push(spawnedYarn)
+}
+
+
 
 
 
@@ -27,10 +42,12 @@ function startGame(){
     gamePage.style.display = "block"
     setInterval(gameLoop , Math.round(1000/60))
     setInterval(cactusSpawn,1000)
+    setInterval(pizzaSpawn,1000)
+    setInterval(yarnSpawn,2000)
 
     catObj = new Cat()
     catObj.moving()
-    cactusObj = new Cactus()
+    // cactusObj = new Cactus()
 }
 
 
@@ -40,9 +57,12 @@ function gameLoop(){
     cactusArr.forEach((cactus) => {
         cactus.movingCactus()
     })
-
-    
-
+    pizzaArr.forEach((pizza) => {
+        pizza.movingPizza()
+    })
+    yarnArr.forEach((yarn) => {
+        yarn.movingYarn()
+    })
 
 }
 

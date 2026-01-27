@@ -8,8 +8,8 @@ class Cactus {
 
         this.posX = 700
         this.posY = posY
-        this.width = 60
-        this.height = 60
+        this.cactus.style.width = "60px"
+        this.cactus.style.height = "60px"
 
         this.cactus.style.position = "absolute"
         this.cactus.style.top = `${this.posY}px`
