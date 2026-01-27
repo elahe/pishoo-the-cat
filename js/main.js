@@ -31,7 +31,22 @@ function yarnSpawn(){
     let spawnedYarn = new YarnBall(randomNum)
     yarnArr.push(spawnedYarn)
 }
+console.log(yarnArr)
 
+function deSpawn (){
+    if(cactusArr[0].posX  <= -60 ){
+        cactusArr[0].cactus.remove()// removing from dom
+        cactusArr.shift() // removes from js
+    }
+    if(pizzaArr[0].posX  <= -60 ){
+        pizzaArr[0].pizza.remove()// removing from dom
+        pizzaArr.shift() // removes from js
+    }
+    if(yarnArr[0].posX  <= -60 ){
+        yarnArr[0].yarn.remove()// removing from dom
+        yarnArr.shift() // removes from js
+    }
+}
 
 
 
@@ -63,6 +78,7 @@ function gameLoop(){
     yarnArr.forEach((yarn) => {
         yarn.movingYarn()
     })
+    deSpawn()
 
 }
 
