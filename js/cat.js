@@ -6,7 +6,7 @@ class Cat{
 
         this.x = 60
         this.y = 60
-        this.w = 40
+        this.w = 30
         this.h = 40
 
 
