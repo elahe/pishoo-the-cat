@@ -65,19 +65,21 @@ function theColliding(){
     })
     yarnArr.forEach((eachyarn) => {
         let isColliding = checkCollisionCatCac(catObj, eachyarn)
-        if (isColliding) {
+        if (isColliding&& !eachyarn.hit) {
+            eachyarn.hit = true;
             score++
-            // console.log(score)
+            console.log(score)
         }
     })
     pizzaArr.forEach((eachpizza) => {
         let isColliding = checkCollisionCatCac(catObj, eachpizza)
-        if (isColliding) {
+        if (isColliding&& !eachpizza.hit) {
+            eachpizza.hit = true;
             catObj.w += 3
             catObj.h += 3
             catObj.cat.style.width = `${catObj.w}px`
             catObj.cat.style.height = `${catObj.h}px`
-            console.log(catObj.w)
+            // console.log(catObj.w)
         }
     })
 }

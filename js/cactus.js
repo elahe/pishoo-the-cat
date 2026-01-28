@@ -8,8 +8,8 @@ class Cactus {
 
         this.posX = 700
         this.posY = posY
-        this.width = 60
-        this.height = 60
+        this.width = 40
+        this.height = 40
 
         
 
