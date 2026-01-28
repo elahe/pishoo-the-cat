@@ -1,7 +1,9 @@
 let startBtn = document.querySelector("#start") 
+let restartBtn = document.querySelector("#restart") 
 let startPage = document.querySelector("#start-page")
 let gamePage = document.querySelector("#game-page")
 let gameOverPage = document.querySelector("#gameover-page")
+
 
 
 let cactusArr = []
@@ -13,6 +15,12 @@ let cactusObj = null
 let pizzaObj = null
 let yarnObj = null
 let score = 0
+
+let gameLoopInterval = null
+let cactusSpawnInterval = null
+let pizzaSpawnInterval = null
+let yarnSpawnInterval = null
+
 // let randomNum = Math.floor(Math.random() * 480)
 
 
@@ -59,7 +67,7 @@ function theColliding(){
     cactusArr.forEach((eachCac) => {
         let isColliding = checkCollisionCatCac(catObj, eachCac)
         if (isColliding) {
-            // gameOver()
+            gameOver()
             // console.log("cactus")
         }
     })
@@ -110,9 +118,11 @@ function checkCollisionCatCac(obj1, obj2) {
 
 
 
-
+//// start game
 
 startBtn.addEventListener("click", startGame)
+
+
 
 function cactusSpawn(){
     let randomNum = Math.floor(Math.random() * 480)
@@ -129,7 +139,11 @@ function yarnSpawn(){
     let spawnedYarn = new YarnBall(randomNum)
     yarnArr.push(spawnedYarn)
 }
-console.log(yarnArr)
+// console.log(yarnArr)
+
+
+
+
 
 function deSpawn (){
     
@@ -154,10 +168,10 @@ function deSpawn (){
 function startGame(){
     startPage.style.display = "none"
     gamePage.style.display = "block"
-    setInterval(gameLoop , Math.round(1000/60))
-    setInterval(cactusSpawn,1000)
-    setInterval(pizzaSpawn,1000)
-    setInterval(yarnSpawn,2000)
+    gameLoopInterval = setInterval(gameLoop , Math.round(1000/60))
+    cactusSpawnInterval = setInterval(cactusSpawn,1000)
+    pizzaSpawnInterval = setInterval(pizzaSpawn,1000)
+    yarnSpawnInterval = setInterval(yarnSpawn,2000)
 
     catObj = new Cat()
     // catObj.moving()
@@ -168,7 +182,60 @@ function gameOver(){
     startPage.style.display = "none"
     gamePage.style.display = "none"
     gameOverPage.style.display = "block"
+    clearInterval(gameLoopInterval)
+    clearInterval(cactusSpawnInterval)
+    clearInterval(pizzaSpawnInterval)
+    clearInterval(yarnSpawnInterval)
+
 }
+
+
+
+
+// restart
+restartBtn.addEventListener("click" , restart)
+function restart(){
+    if (catObj) {
+        catObj.cat.remove();
+        catObj = null;
+    }
+
+
+    cactusArr.forEach((cac) => {
+        console.log("ggg")
+        cac.cactus.remove()
+        
+    })
+    pizzaArr.forEach((pizza) => {
+        pizza.pizza.remove()
+    })
+    yarnArr.forEach((yarn) => {
+        yarn.yarn.remove()
+    })
+
+    cactusArr.length = 0
+    pizzaArr.length = 0
+    yarnArr.length = 0
+    // console.log( yarnArr.length)
+
+    // console.log('bluh')
+
+
+
+
+    gameOverPage.style.display = "none"
+    startGame()
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -186,7 +253,6 @@ function gameLoop(){
     })
     deSpawn()
     theColliding()
-    // gameOver()
 
 }
 
