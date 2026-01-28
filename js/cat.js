@@ -30,20 +30,28 @@ class Cat{
 
 
         if(this.isMovingUp === true){
-            this.y -= 1
-            this.cat.style.top = `${this.y}px`
+            if(this.y > 0 ){
+                this.y -= 1
+                this.cat.style.top = `${this.y}px`
+            }
         }
         if(this.isMovingDown === true){
-            this.y += 1
-            this.cat.style.top = `${this.y}px`
+            if(this.y < 455){
+                this.y += 1
+                this.cat.style.top = `${this.y}px`
+            }
         }
         if(this.isMovingLeft === true){
-            this.x -= 1
-            this.cat.style.left = `${this.x}px`
+            if(this.x > 0){
+                this.x -= 1
+                this.cat.style.left = `${this.x}px`
+            }
         }
         if(this.isMovingRight === true){
-            this.x += 1
-            this.cat.style.left = `${this.x}px`
+            if(this.x < 670){
+                this.x += 1
+                this.cat.style.left = `${this.x}px`
+            }
         }
     }
 

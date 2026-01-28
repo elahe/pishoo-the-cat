@@ -195,7 +195,7 @@ function restart(){
 
 
     cactusArr.forEach((cac) => {
-        console.log("ggg")
+        // console.log("ggg")
         cac.cactus.remove()
         
     })
