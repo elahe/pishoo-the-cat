@@ -3,6 +3,8 @@ let restartBtn = document.querySelector("#restart")
 let startPage = document.querySelector("#start-page")
 let gamePage = document.querySelector("#game-page")
 let gameOverPage = document.querySelector("#gameover-page")
+let scoreElement = document.querySelectorAll(".score span")
+// console.log(scoreElement.innerText)
 
 
 
@@ -76,7 +78,10 @@ function theColliding(){
         if (isColliding&& !eachyarn.hit) {
             eachyarn.hit = true;
             score++
-            console.log(score)
+            scoreElement.forEach(span => {
+                span.innerText = score;
+            });
+            // console.log(score)
         }
     })
     pizzaArr.forEach((eachpizza) => {
@@ -100,19 +105,6 @@ function checkCollisionCatCac(obj1, obj2) {
         obj1.y + obj1.h > obj2.posY
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -186,6 +178,7 @@ function gameOver(){
     clearInterval(cactusSpawnInterval)
     clearInterval(pizzaSpawnInterval)
     clearInterval(yarnSpawnInterval)
+    // console.log(score)
 
 }
 
@@ -216,6 +209,16 @@ function restart(){
     cactusArr.length = 0
     pizzaArr.length = 0
     yarnArr.length = 0
+    score = 0
+
+    scoreElement.forEach(span => {
+        span.innerText = score;
+    });
+
+
+
+
+
     // console.log( yarnArr.length)
 
     // console.log('bluh')

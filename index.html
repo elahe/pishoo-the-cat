@@ -1,36 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>pishoo the cat</title>
-</head>
-<body>
-    <div id="start-page">
+  </head>
+  <body>
+    <div class="container">
+        <div class="score">
+            score :
+            <span></span>
+        </div>
+      <div id="start-page">
         <button id="start">start</button>
-    </div>
+      </div>
 
+      <div id="game-page">
+        
+      </div>
 
-    <div id="game-page">
-
-    </div>
-
-
-
-    <div id="gameover-page">
+      <div id="gameover-page">
+        <h1>game over</h1>
+        <div class="score">
+            score :
+            <span></span>
+        </div>
         <button id="restart">restart</button>
+      </div>
     </div>
-
-
-
-
 
     <script src="./js/main.js"></script>
     <script src="./js/cat.js"></script>
     <script src="./js/cactus.js"></script>
     <script src="./js/yarn-ball.js"></script>
     <script src="./js/pizza.js"></script>
-    
-</body>
+  </body>
 </html>
