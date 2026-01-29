@@ -3,7 +3,7 @@ class Cactus {
         
 
         this.cactus = document.createElement("img")
-        this.cactus.src = "../images/cactus.png"
+        this.cactus.src = "./images/cactus.png"
         gamePage.append(this.cactus)
 
         this.posX = 700

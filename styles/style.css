@@ -16,7 +16,7 @@ button:hover {
 
 #start-page {
     display: block;
-    background-image: url(../images/Desert-blur.png);
+    background-image: url(../images/desert-blur.png);
     background-size: cover;
     width: 700px;
     height: 500px;
@@ -47,7 +47,7 @@ button:hover {
     height: 500px;
     margin: 100px auto; */
     display: none;
-    background-image: url(../images/Desert-blur.png);
+    background-image: url(../images/desert-blur.png);
     background-size: cover;
     width: 700px;
     height: 500px;

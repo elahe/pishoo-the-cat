@@ -3,7 +3,7 @@ class Pizza {
         
 
         this.pizza = document.createElement("img")
-        this.pizza.src = "../images/pizza.png"
+        this.pizza.src = "./images/pizza.png"
         gamePage.append(this.pizza)
 
         this.posX = 700

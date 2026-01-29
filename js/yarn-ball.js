@@ -3,7 +3,7 @@ class YarnBall {
         
 
         this.yarn = document.createElement("img")
-        this.yarn.src = "../images/yarn-ball.png"
+        this.yarn.src = "./images/yarn-ball.png"
         gamePage.append(this.yarn)
 
         this.posX = 700
