@@ -1,7 +1,7 @@
 class Cat{
     constructor(x,y,w,h){
         this.cat = document.createElement("img")
-        this.cat.src = "../images/cat.png"
+        this.cat.src = "./images/cat.png"
         gamePage.append(this.cat)
 
         this.x = 60
