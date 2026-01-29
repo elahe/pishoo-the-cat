@@ -96,6 +96,7 @@ function theColliding(){
             scoreElement.forEach(span => {
                 span.innerText = score;
             });
+            eachyarn.yarn.style.display = "none"
             // console.log(score)
         }
     })
@@ -109,7 +110,7 @@ function theColliding(){
             catObj.cat.style.height = `${catObj.h}px`
             eatSound.currentTime = 0;
             eatSound.play();
-            // pizzaObj.pizza.style.display = "none"
+            eachpizza.pizza.style.display = "none"
             // console.log(catObj.w)
         }
     })
@@ -179,9 +180,9 @@ function startGame(){
     startPage.style.display = "none"
     gamePage.style.display = "block"
     gameLoopInterval = setInterval(gameLoop , Math.round(1000/60))
-    cactusSpawnInterval = setInterval(cactusSpawn,1200)
-    pizzaSpawnInterval = setInterval(pizzaSpawn,1100)
-    yarnSpawnInterval = setInterval(yarnSpawn,1500)
+    cactusSpawnInterval = setInterval(cactusSpawn,1000)
+    pizzaSpawnInterval = setInterval(pizzaSpawn,1300)
+    yarnSpawnInterval = setInterval(yarnSpawn,1700)
     gameSound.play()
 
     catObj = new Cat()
@@ -192,7 +193,7 @@ function startGame(){
 function gameOver(){
     startPage.style.display = "none"
     gamePage.style.display = "none"
-    gameOverPage.style.display = "block"
+    gameOverPage.style.display = "flex"
     clearInterval(gameLoopInterval)
     clearInterval(cactusSpawnInterval)
     clearInterval(pizzaSpawnInterval)
