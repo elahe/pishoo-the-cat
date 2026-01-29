@@ -4,6 +4,11 @@ let startPage = document.querySelector("#start-page")
 let gamePage = document.querySelector("#game-page")
 let gameOverPage = document.querySelector("#gameover-page")
 let scoreElement = document.querySelectorAll(".score span")
+let highScore = Number(localStorage.getItem("highScore")) || 0
+let highestScore = document.querySelector(".highestScore span")
+
+
+
 
 // console.log(scoreElement.innerText)
 
@@ -31,8 +36,12 @@ const gameoverSound = new Audio("./sounds/gameover.mp3")
 const eatSound = new Audio("./sounds/eat.mp3")
 
 
-gameSound.loop = true;
-// gameSound.volume = 0.5;
+gameSound.loop = true
+gameSound.volume = 0.1
+hitSound.volume = 0.2
+pointSound.volume = 0.2
+gameoverSound.volume = 0.1
+eatSound.volume = 0.1
 
 // let randomNum = Math.floor(Math.random() * 480)
 
@@ -200,7 +209,12 @@ function gameOver(){
     clearInterval(yarnSpawnInterval)
     gameSound.pause()
     gameoverSound.play()
-    // console.log(score)
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("highScore", highScore);
+    }
+    highestScore.innerText = highScore
+    console.log(highestScore.innerText)
 
 }
 

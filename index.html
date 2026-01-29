@@ -8,16 +8,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
-    
+
     <title>pishoo the cat</title>
   </head>
   <body>
     <div class="container">
         <div class="score">
             score :
-            <span></span>
+            <span>0</span>
         </div>
       <div id="start-page">
+        <!-- <div class="highestScore">
+            highest score : <span></span>
+        </div> -->
+        <div class="instruction">
+            <h5>🐱 How to Play</h5>
+            <ul>
+                <li>Use arrow keys to move the cat</li>
+                <li>🧶 Collect yarn to increase your score</li>
+                <li>🍕 Collect pizza to grow bigger — the game gets harder!</li>
+                <li>🌵 Avoid cactuses or the game is over</li>
+                <li>Your highest score is saved automatically</li>
+                <li>Press Start and have fun! 🎮🐾</li>
+            </ul>
+        </div>
         <button id="start">start</button>
       </div>
 
@@ -27,6 +41,9 @@
 
       <div id="gameover-page">
         <h1>game over</h1>
+        <div class="highestScore">
+            highest score : <span></span>
+        </div>
         <div class="score">
             score :
             <span></span>

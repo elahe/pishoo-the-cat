@@ -15,7 +15,7 @@ button{
     font-family: "Irish Grover", system-ui;
     display: block;
     padding: 10px 20px;
-    margin: 100px auto;
+    margin: 30px auto;
     color: white;
     font-size: 20px;
     background-color: rgb(0, 159, 106);
@@ -29,7 +29,9 @@ button:hover {
 
 
 #start-page {
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-image: url(../images/desert-blur.png);
     background-size: cover;
     width: 700px;
@@ -61,7 +63,7 @@ button:hover {
     height: 500px;
     margin: 100px auto; */
     display: none;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     background-image: url(../images/desert-blur.png);
     background-size: cover;
@@ -91,4 +93,17 @@ button:hover {
     margin: 100px auto;
     width: 700px;
     height: 550px;
+}
+
+.instruction{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.instruction ul {
+    list-style-type: none;
+}
+.highestScore{
+    text-align: center;
+    color: white;
 }
