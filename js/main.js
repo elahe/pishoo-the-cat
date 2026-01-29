@@ -109,6 +109,7 @@ function theColliding(){
             catObj.cat.style.height = `${catObj.h}px`
             eatSound.currentTime = 0;
             eatSound.play();
+            // pizzaObj.pizza.style.display = "none"
             // console.log(catObj.w)
         }
     })
@@ -131,7 +132,7 @@ function checkCollisionCatCac(obj1, obj2) {
 
 startBtn.addEventListener("click", startGame)
 
-
+//////spawning
 
 function cactusSpawn(){
     let randomNum = Math.floor(Math.random() * 480)
@@ -178,9 +179,9 @@ function startGame(){
     startPage.style.display = "none"
     gamePage.style.display = "block"
     gameLoopInterval = setInterval(gameLoop , Math.round(1000/60))
-    cactusSpawnInterval = setInterval(cactusSpawn,1000)
-    pizzaSpawnInterval = setInterval(pizzaSpawn,1000)
-    yarnSpawnInterval = setInterval(yarnSpawn,2000)
+    cactusSpawnInterval = setInterval(cactusSpawn,1200)
+    pizzaSpawnInterval = setInterval(pizzaSpawn,1100)
+    yarnSpawnInterval = setInterval(yarnSpawn,1500)
     gameSound.play()
 
     catObj = new Cat()
