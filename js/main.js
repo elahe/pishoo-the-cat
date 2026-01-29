@@ -4,6 +4,7 @@ let startPage = document.querySelector("#start-page")
 let gamePage = document.querySelector("#game-page")
 let gameOverPage = document.querySelector("#gameover-page")
 let scoreElement = document.querySelectorAll(".score span")
+
 // console.log(scoreElement.innerText)
 
 
@@ -22,6 +23,16 @@ let gameLoopInterval = null
 let cactusSpawnInterval = null
 let pizzaSpawnInterval = null
 let yarnSpawnInterval = null
+
+const gameSound = new Audio("./sounds/gameloop.mp3")
+const hitSound = new Audio("./sounds/hit.mp3")
+const pointSound = new Audio("./sounds/point.mp3")
+const gameoverSound = new Audio("./sounds/gameover.mp3")
+const eatSound = new Audio("./sounds/eat.mp3")
+
+
+gameSound.loop = true;
+// gameSound.volume = 0.5;
 
 // let randomNum = Math.floor(Math.random() * 480)
 
@@ -69,6 +80,8 @@ function theColliding(){
     cactusArr.forEach((eachCac) => {
         let isColliding = checkCollisionCatCac(catObj, eachCac)
         if (isColliding) {
+            hitSound.currentTime = 0;
+            hitSound.play();
             gameOver()
             // console.log("cactus")
         }
@@ -78,6 +91,8 @@ function theColliding(){
         if (isColliding&& !eachyarn.hit) {
             eachyarn.hit = true;
             score++
+            pointSound.currentTime = 0;
+            pointSound.play();
             scoreElement.forEach(span => {
                 span.innerText = score;
             });
@@ -86,12 +101,14 @@ function theColliding(){
     })
     pizzaArr.forEach((eachpizza) => {
         let isColliding = checkCollisionCatCac(catObj, eachpizza)
-        if (isColliding&& !eachpizza.hit) {
+        if (isColliding && !eachpizza.hit) {
             eachpizza.hit = true;
             catObj.w += 3
             catObj.h += 3
             catObj.cat.style.width = `${catObj.w}px`
             catObj.cat.style.height = `${catObj.h}px`
+            eatSound.currentTime = 0;
+            eatSound.play();
             // console.log(catObj.w)
         }
     })
@@ -164,6 +181,7 @@ function startGame(){
     cactusSpawnInterval = setInterval(cactusSpawn,1000)
     pizzaSpawnInterval = setInterval(pizzaSpawn,1000)
     yarnSpawnInterval = setInterval(yarnSpawn,2000)
+    gameSound.play()
 
     catObj = new Cat()
     // catObj.moving()
@@ -178,6 +196,8 @@ function gameOver(){
     clearInterval(cactusSpawnInterval)
     clearInterval(pizzaSpawnInterval)
     clearInterval(yarnSpawnInterval)
+    gameSound.pause()
+    gameoverSound.play()
     // console.log(score)
 
 }
