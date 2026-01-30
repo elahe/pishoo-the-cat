@@ -89,19 +89,19 @@ function theColliding(){
     yarnArr.forEach((eachyarn) => {
         let isColliding = checkCollisionCatCac(catObj, eachyarn)
         if (isColliding&& !eachyarn.hit) {
-            eachyarn.hit = true;
+            eachyarn.hit = true; // to add score just one time
             score++
             pointSound.currentTime = 0;
             pointSound.play();
             scoreElement.forEach(span => {
-                span.innerText = score;
+                span.innerText = score; // updating dom
             });
             eachyarn.yarn.style.display = "none"
         }
     })
     pizzaArr.forEach((eachpizza) => {
         let isColliding = checkCollisionCatCac(catObj, eachpizza)
-        if (isColliding && !eachpizza.hit) {
+        if (isColliding && !eachpizza.hit) { // making cat bigger when colliding with pizza
             eachpizza.hit = true;
             catObj.w += 6
             catObj.h += 6
@@ -130,20 +130,14 @@ function checkCollisionCatCac(obj1, obj2) {
 
 //////spawning
 
-function cactusSpawn(){
+
+
+
+
+function spawningAll(className , array){
     let randomNum = Math.floor(Math.random() * 480)
-    let spawnedCactus = new Cactus(randomNum)
-    cactusArr.push(spawnedCactus)
-}
-function pizzaSpawn(){
-    let randomNum = Math.floor(Math.random() * 480)
-    let spawnedPizza = new Pizza(randomNum)
-    pizzaArr.push(spawnedPizza)
-}
-function yarnSpawn(){
-    let randomNum = Math.floor(Math.random() * 480)
-    let spawnedYarn = new YarnBall(randomNum)
-    yarnArr.push(spawnedYarn)
+    let spawnedItem = new className(randomNum)
+    array.push(spawnedItem)
 }
 
 
@@ -168,6 +162,11 @@ function deSpawn (){
 
 
 
+
+
+
+
+
 //// start game
 
 startBtn.addEventListener("click", startGame)
@@ -177,10 +176,22 @@ function startGame(){
     startPage.style.display = "none"
     gamePage.style.display = "block"
     gameLoopInterval = setInterval(gameLoop , Math.round(1000/60))
-    cactusSpawnInterval = setInterval(cactusSpawn,1000)
-    pizzaSpawnInterval = setInterval(pizzaSpawn,1300)
-    yarnSpawnInterval = setInterval(yarnSpawn,1700)
+
+    cactusSpawnInterval = setInterval(() =>{
+        spawningAll(Cactus,cactusArr)
+    },1000)
+
+    pizzaSpawnInterval = setInterval(() => 
+        {spawningAll(Pizza,pizzaArr)
+    },1300)
+
+    yarnSpawnInterval = setInterval(() => 
+        {spawningAll(YarnBall,yarnArr)
+    },1700)
     gameSound.play()
+
+
+
 
     catObj = new Cat()
 } 
