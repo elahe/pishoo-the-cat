@@ -9,11 +9,6 @@ let highestScore = document.querySelector(".highestScore span")
 
 
 
-
-// console.log(scoreElement.innerText)
-
-
-
 let cactusArr = []
 let pizzaArr = []
 let yarnArr = []
@@ -43,11 +38,8 @@ pointSound.volume = 0.2
 gameoverSound.volume = 0.1
 eatSound.volume = 0.1
 
-// let randomNum = Math.floor(Math.random() * 480)
 
-
-
-/// cat moving
+///moving cat
 
 document.addEventListener("keydown",(event) => {
     if(event.key === "ArrowUp"){
@@ -83,7 +75,7 @@ document.addEventListener("keyup",(event) => {
 
 
 
-////// is colliding 
+////// collision
 
 function theColliding(){
     cactusArr.forEach((eachCac) => {
@@ -92,7 +84,6 @@ function theColliding(){
             hitSound.currentTime = 0;
             hitSound.play();
             gameOver()
-            // console.log("cactus")
         }
     })
     yarnArr.forEach((eachyarn) => {
@@ -106,21 +97,19 @@ function theColliding(){
                 span.innerText = score;
             });
             eachyarn.yarn.style.display = "none"
-            // console.log(score)
         }
     })
     pizzaArr.forEach((eachpizza) => {
         let isColliding = checkCollisionCatCac(catObj, eachpizza)
         if (isColliding && !eachpizza.hit) {
             eachpizza.hit = true;
-            catObj.w += 3
-            catObj.h += 3
+            catObj.w += 6
+            catObj.h += 6
             catObj.cat.style.width = `${catObj.w}px`
             catObj.cat.style.height = `${catObj.h}px`
             eatSound.currentTime = 0;
             eatSound.play();
             eachpizza.pizza.style.display = "none"
-            // console.log(catObj.w)
         }
     })
 }
@@ -138,9 +127,6 @@ function checkCollisionCatCac(obj1, obj2) {
 
 
 
-//// start game
-
-startBtn.addEventListener("click", startGame)
 
 //////spawning
 
@@ -159,7 +145,6 @@ function yarnSpawn(){
     let spawnedYarn = new YarnBall(randomNum)
     yarnArr.push(spawnedYarn)
 }
-// console.log(yarnArr)
 
 
 
@@ -168,21 +153,24 @@ function yarnSpawn(){
 function deSpawn (){
     
     if(cactusArr.length !== 0 && cactusArr[0].posX  <= -60 ){
-        cactusArr[0].cactus.remove()// removing from dom
-        cactusArr.shift() // removes from js
+        cactusArr[0].cactus.remove()
+        cactusArr.shift() 
     }
     if(pizzaArr.length !== 0 && pizzaArr[0].posX  <= -60 ){
-        pizzaArr[0].pizza.remove()// removing from dom
-        pizzaArr.shift() // removes from js
+        pizzaArr[0].pizza.remove()
+        pizzaArr.shift() 
     }
     if(yarnArr.length !== 0 && yarnArr[0].posX  <= -60 ){
-        yarnArr[0].yarn.remove()// removing from dom
-        yarnArr.shift() // removes from js
+        yarnArr[0].yarn.remove()
+        yarnArr.shift() 
     }
 } 
 
 
 
+//// start game
+
+startBtn.addEventListener("click", startGame)
 
 
 function startGame(){
@@ -195,8 +183,6 @@ function startGame(){
     gameSound.play()
 
     catObj = new Cat()
-    // catObj.moving()
-    // cactusObj = new Cactus()
 } 
 
 function gameOver(){
@@ -221,7 +207,7 @@ function gameOver(){
 
 
 
-// restart
+//// restart
 restartBtn.addEventListener("click" , restart)
 function restart(){
     if (catObj) {
@@ -231,7 +217,6 @@ function restart(){
 
 
     cactusArr.forEach((cac) => {
-        // console.log("ggg")
         cac.cactus.remove()
         
     })
@@ -251,35 +236,12 @@ function restart(){
         span.innerText = score;
     });
 
-
-
-
-
-    // console.log( yarnArr.length)
-
-    // console.log('bluh')
-
-
-
-
     gameOverPage.style.display = "none"
     startGame()
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 function gameLoop(){
-    // cactusObj.movingCactus()
     catObj.moving()
     cactusArr.forEach((cactus) => {
         cactus.movingCactus()
